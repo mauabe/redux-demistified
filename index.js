@@ -1,6 +1,7 @@
 import React from 'react';
-...
-import configureStore from './configureStore';
+import { Provider } from './react-redux';
+
+const store = configureStore(todos);import configureStore from './configureStore';
 
 const todos = [
   { id: 1, isDone: false, description: "write some docs" },
@@ -11,6 +12,8 @@ const todos = [
 const store = configureStore(todos);
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
