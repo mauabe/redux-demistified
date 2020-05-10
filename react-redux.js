@@ -7,7 +7,9 @@ const ConnectedComponent = ({
   component
 }) => {
   const store = React.useContext(Context);
-  const state = '???'
+  const state = getState();
+  const props = mapStateToProps(state);
+  return component(props);
 };
 
 export const Provider = ({ store, children }) => {
